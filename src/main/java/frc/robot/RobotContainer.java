@@ -51,9 +51,9 @@ public class RobotContainer {
     //set up the drivetrain command that runs all the time
     m_drivetrain.setDefaultCommand(new RunCommand(
       () -> 
-        m_drivetrain.driveArcade(
+        m_drivetrain.tankDrive(
           MathUtil.applyDeadband(- m_driveController.getLeftY(), Constants.OIConstants.kDriveDeadband),
-          MathUtil.applyDeadband(m_driveController.getRightX()*Constants.Drivetrain.kTurningScale, Constants.OIConstants.kDriveDeadband))
+          MathUtil.applyDeadband(m_driveController.getRightY()*Constants.Drivetrain.kTurningScale, Constants.OIConstants.kDriveDeadband))
       , m_drivetrain)
     );
 

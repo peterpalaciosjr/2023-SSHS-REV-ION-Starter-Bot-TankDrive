@@ -48,10 +48,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
     m_rearRightMotor.burnFlash();
   }
 
-  public void driveArcade(double _straight, double _turn) {
-    double left  = MathUtil.clamp(_straight + _turn, -1.0, 1.0);
-    double right = MathUtil.clamp(_straight - _turn, -1.0, 1.0);
-
+  public void tankDrive(double left, double right) {
     m_frontLeftMotor.set(left);
     m_frontRightMotor.set(right);
     m_rearLeftMotor.set(left);
