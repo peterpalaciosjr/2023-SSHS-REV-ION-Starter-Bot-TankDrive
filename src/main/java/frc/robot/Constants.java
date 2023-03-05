@@ -36,7 +36,7 @@ public final class Constants {
         public static final boolean kRearLeftInverted = true;
         public static final boolean kRearRightInverted = false;
 
-        public static final int kCurrentLimit = 55;
+        public static final int kCurrentLimit = 30;
 
         public static final double kTurningScale = 0.5;
     }
