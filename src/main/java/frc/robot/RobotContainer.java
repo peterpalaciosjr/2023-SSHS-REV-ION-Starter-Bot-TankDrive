@@ -52,7 +52,7 @@ public class RobotContainer {
     m_drivetrain.setDefaultCommand(new RunCommand(
       () -> 
         m_drivetrain.tankDrive(
-          MathUtil.applyDeadband(- m_driveController.getLeftY(), Constants.OIConstants.kDriveDeadband),
+          MathUtil.applyDeadband(m_driveController.getLeftY(), Constants.OIConstants.kDriveDeadband),
           MathUtil.applyDeadband(m_driveController.getRightY()*Constants.Drivetrain.kTurningScale, Constants.OIConstants.kDriveDeadband))
       , m_drivetrain)
       
