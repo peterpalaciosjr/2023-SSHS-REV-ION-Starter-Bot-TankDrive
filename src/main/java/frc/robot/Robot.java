@@ -7,6 +7,9 @@ package frc.robot;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
+import frc.robot.commands.TankDrive;
+import edu.wpi.first.wpilibj.Timer;
+
 
 /**
  * The VM is configured to automatically run this class, and to call the functions corresponding to
@@ -16,9 +19,12 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot {
   private Command m_autonomousCommand;
-
   private RobotContainer m_robotContainer;
 
+  private final Timer m_timer = new Timer();
+  double initTime;
+  // private RobotDrive myRobot;
+  
   /**
    * This function is run when the robot is first started up and should be used for any
    * initialization code.
@@ -27,7 +33,9 @@ public class Robot extends TimedRobot {
   public void robotInit() {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
+    // myRobot = new RobotDrive(0, 1);
     m_robotContainer = new RobotContainer();
+  
   }
 
   /**
@@ -48,9 +56,7 @@ public class Robot extends TimedRobot {
 
   /** This function is called once each time the robot enters Disabled mode. */
   @Override
-  public void disabledInit() {
-    System.out.println("The robot is currently disabled!");
-  }
+  public void disabledInit() {}
 
   @Override
   public void disabledPeriodic() {}
@@ -58,17 +64,31 @@ public class Robot extends TimedRobot {
   /** This autonomous runs the autonomous command selected by your {@link RobotContainer} class. */
   @Override
   public void autonomousInit() {
+    initTime = Timer.getFPGATimestamp();
+    // schedule the autonomous command (example)
     m_autonomousCommand = m_robotContainer.getAutonomousCommand();
 
-    // schedule the autonomous command (example)
     if (m_autonomousCommand != null) {
-      m_autonomousCommand.schedule();
-    }
+     m_autonomousCommand.schedule();
+   }
+   // m_timer.reset();
+   // m_timer.start();
+
   }
 
   /** This function is called periodically during autonomous. */
   @Override
-  public void autonomousPeriodic() {}
+  public void autonomousPeriodic() {
+ 
+     if (Timer.getFPGATimestamp() - initTime < 2.0) 
+     {
+        m_robotContainer.m_drivetrain.tankDrive(0.6,0.6);
+      }
+       else
+      {
+        m_robotContainer.m_drivetrain.tankDrive(0.0, 0.0);
+      }
+  }
 
   @Override
   public void teleopInit() {
@@ -79,6 +99,7 @@ public class Robot extends TimedRobot {
     if (m_autonomousCommand != null) {
       m_autonomousCommand.cancel();
     }
+    RobotContainer.m_drivetrain.setDefaultCommand(new TankDrive());
   }
 
   /** This function is called periodically during operator control. */
