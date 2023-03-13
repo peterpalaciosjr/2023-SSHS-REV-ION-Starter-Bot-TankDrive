@@ -20,7 +20,7 @@ import java.lang.Math;
 public final class Constants {
     public static final class OIConstants {
         public static final int kDriverController = 0;
-        public  static final int kArmController = 1;
+        public static final int kArmController = 1;
         public static final double kDriveDeadband = 0.05;
         public static final double kArmManualDeadband = 0.05;
         public static final double kArmManualScale = 0.5;
