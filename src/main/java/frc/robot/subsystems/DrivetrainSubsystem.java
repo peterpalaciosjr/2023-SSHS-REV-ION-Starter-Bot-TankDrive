@@ -5,7 +5,7 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.math.MathUtil;
+// import edu.wpi.first.math.MathUtil;
 
 import frc.robot.Constants;
 
@@ -31,7 +31,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
     m_frontRightMotor = new CANSparkMax(Constants.Drivetrain.kFrontRightCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_frontRightMotor.setInverted(Constants.Drivetrain.kFrontRightInverted);
-    m_frontRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_frontRightMotor.setSmartCurrentLimit(Constants.Drivetrain.k2CurrentLimit);
     m_frontRightMotor.setIdleMode(IdleMode.kBrake);
     m_frontRightMotor.burnFlash();
 
@@ -43,7 +43,7 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
     m_rearRightMotor  = new CANSparkMax(Constants.Drivetrain.kRearRightCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_rearRightMotor.setInverted(Constants.Drivetrain.kRearRightInverted);
-    m_rearRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_rearRightMotor.setSmartCurrentLimit(Constants.Drivetrain.k2CurrentLimit);
     m_rearRightMotor.setIdleMode(IdleMode.kBrake);
     m_rearRightMotor.burnFlash();
   }
