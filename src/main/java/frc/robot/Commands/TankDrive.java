@@ -26,7 +26,7 @@ public class TankDrive extends CommandBase {
   public void execute() {
     RobotContainer.m_drivetrain.tankDrive(
           MathUtil.applyDeadband(RobotContainer.m_driveController.getLeftY(), Constants.OIConstants.kDriveDeadband),
-          MathUtil.applyDeadband(RobotContainer.m_driveController.getRightY()*Constants.Drivetrain.kTurningScale, Constants.OIConstants.kDriveDeadband));
+          MathUtil.applyDeadband(RobotContainer.m_driveController.getRightY(), Constants.OIConstants.kDriveDeadband));
   }
 
   // Called once the command ends or is interrupted.

@@ -40,7 +40,7 @@ public final class Constants {
         public static final int kCurrentLimit = 20;
         public static final int k2CurrentLimit = 40;
 
-        public static final double kTurningScale = 0.5;
+        // public static final double kTurningScale = 0.5;
     }
 
     public static final class Arm {
