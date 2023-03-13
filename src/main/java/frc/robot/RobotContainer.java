@@ -4,7 +4,6 @@
 
 package frc.robot;
 
-import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import frc.robot.subsystems.ArmSubsystem;
@@ -31,14 +30,15 @@ public class RobotContainer {
 
   private final GripperSubsystem m_gripper = new GripperSubsystem();
   private final ArmSubsystem m_arm = new ArmSubsystem();
-  private final DrivetrainSubsystem m_drivetrain = new DrivetrainSubsystem();
+  public static final DrivetrainSubsystem m_drivetrain = new DrivetrainSubsystem();
 
-  private XboxController m_driveController = new XboxController(Constants.OIConstants.kDriverController); 
+  public static final XboxController m_driveController = new XboxController(Constants.OIConstants.kDriverController); 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings(); 
+
   }
 
   /**
@@ -48,16 +48,6 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   private void configureButtonBindings() {
-    //set up the drivetrain command that runs all the time
-    m_drivetrain.setDefaultCommand(new RunCommand(
-      () -> 
-        m_drivetrain.tankDrive(
-          MathUtil.applyDeadband(m_driveController.getLeftY(), Constants.OIConstants.kDriveDeadband),
-          MathUtil.applyDeadband(m_driveController.getRightY()*Constants.Drivetrain.kTurningScale, Constants.OIConstants.kDriveDeadband))
-      , m_drivetrain)
-      
-    );
-
     //set up gripper open/close
     new JoystickButton(m_driveController, XboxController.Button.kRightBumper.value)
       .onTrue(new InstantCommand(() -> m_gripper.openGripper()))
