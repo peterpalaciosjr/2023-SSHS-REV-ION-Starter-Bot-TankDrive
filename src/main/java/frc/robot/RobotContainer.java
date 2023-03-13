@@ -33,6 +33,7 @@ public class RobotContainer {
   public static final DrivetrainSubsystem m_drivetrain = new DrivetrainSubsystem();
 
   public static final XboxController m_driveController = new XboxController(Constants.OIConstants.kDriverController); 
+  public static final XboxController m_ArmController = new XboxController(Constants.OIConstants.kArmController);
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
@@ -49,18 +50,18 @@ public class RobotContainer {
    */
   private void configureButtonBindings() {
     //set up gripper open/close
-    new JoystickButton(m_driveController, XboxController.Button.kRightBumper.value)
+    new JoystickButton(m_ArmController, XboxController.Button.kRightBumper.value)
       .onTrue(new InstantCommand(() -> m_gripper.openGripper()))
       .onFalse(new InstantCommand(() -> m_gripper.closeGripper()));
 
     //set up arm preset positions
-    new JoystickButton(m_driveController, XboxController.Button.kA.value)
+    new JoystickButton(m_ArmController, XboxController.Button.kA.value)
       .onTrue(new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kHomePosition, m_gripper)));
-    new JoystickButton(m_driveController, XboxController.Button.kX.value)
+    new JoystickButton(m_ArmController, XboxController.Button.kX.value)
       .onTrue(new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kScoringPosition, m_gripper)));
-    new JoystickButton(m_driveController, XboxController.Button.kY.value)
+    new JoystickButton(m_ArmController, XboxController.Button.kY.value)
       .onTrue(new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kIntakePosition, m_gripper)));
-    new JoystickButton(m_driveController, XboxController.Button.kB.value)
+    new JoystickButton(m_ArmController, XboxController.Button.kB.value)
       .onTrue(new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kFeederPosition, m_gripper)));
 
     //set up arm manual and auto functions
@@ -70,10 +71,10 @@ public class RobotContainer {
       , m_arm)
     );
     new Trigger(() -> 
-      Math.abs(m_driveController.getRightTriggerAxis() - m_driveController.getLeftTriggerAxis()) > Constants.OIConstants.kArmManualDeadband
+      Math.abs(m_ArmController.getRightTriggerAxis() - m_ArmController.getLeftTriggerAxis()) > Constants.OIConstants.kArmManualDeadband
       ).whileTrue(new RunCommand(
         () ->
-          m_arm.runManual((m_driveController.getRightTriggerAxis() - m_driveController.getLeftTriggerAxis()) * Constants.OIConstants.kArmManualScale)
+          m_arm.runManual((m_ArmController.getRightTriggerAxis() - m_ArmController.getLeftTriggerAxis()) * Constants.OIConstants.kArmManualScale)
         , m_arm));
   }
 
