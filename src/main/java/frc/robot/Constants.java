@@ -36,7 +36,8 @@ public final class Constants {
         public static final boolean kRearLeftInverted = true;
         public static final boolean kRearRightInverted = false;
 
-        public static final int kCurrentLimit = 35;
+        public static final int kCurrentLimit = 20;
+        public static final int k2CurrentLimit = 40;
 
         public static final double kTurningScale = 0.5;
     }
@@ -49,7 +50,7 @@ public final class Constants {
         public static final double kSoftLimitReverse = 0.0;
         public static final double kSoftLimitForward = 4.6;
 
-        public static final double kArmGearRatio = 1.0 / (48.0 * 4.0); 
+        public static final double kArmGearRatio = 1.0 / (81.0 * 4.0); 
         public static final double kPositionFactor = kArmGearRatio * 2.0 * Math.PI; //multiply SM value by this number and get arm position in radians
         public static final double kVelocityFactor = kArmGearRatio * 2.0 * Math.PI / 60.0;
         public static final double kArmFreeSpeed = 5676.0 * kVelocityFactor;
