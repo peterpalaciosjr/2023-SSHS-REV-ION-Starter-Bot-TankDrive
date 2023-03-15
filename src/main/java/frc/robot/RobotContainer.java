@@ -51,7 +51,7 @@ public class RobotContainer {
   private void configureButtonBindings() {
     //set up gripper open/close
     new JoystickButton(m_ArmController, XboxController.Button.kRightBumper.value)
-      .onTrue(new InstantCommand(() -> m_gripper.openGripper()))
+      .onTrue(new InstantCommand(() -> m_gripper.openGripper()));
       .onFalse(new InstantCommand(() -> m_gripper.closeGripper()));
 
     //set up arm preset positions
