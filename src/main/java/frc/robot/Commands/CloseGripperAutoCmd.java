@@ -28,7 +28,6 @@ public class CloseGripperAutoCmd extends CommandBase {
   public void execute() {
         RobotContainer.m_gripper.closeGripper();
       }
-  }
 
   // Called once the command ends or is interrupted.
   @Override
