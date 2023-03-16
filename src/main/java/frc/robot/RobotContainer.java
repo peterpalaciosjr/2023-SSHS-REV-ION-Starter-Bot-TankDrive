@@ -14,6 +14,10 @@ import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.RunCommand;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.CloseGripperAutoCmd;
+import frc.robot.commands.OpenGripperAutoCmd;
+import frc.robot.commands.ScoringPosAutoCmd;
+import frc.robot.commands.HomePosAutoCmd;
 
 
 /**
@@ -84,6 +88,12 @@ public class RobotContainer {
    * @return the command to run in autonomous
    */
   public Command getAutonomousCommand() {
-    return null;
-  }
+    return new SequentialCommandGroup(
+                new ScoringPosAutoCmd(),
+                new OpenGripperPAutoCmd(),
+                new CloseGripperAutoCmd(),
+                new HomePosAutoCmd()
+
+        );
+    }
 }

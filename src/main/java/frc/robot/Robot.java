@@ -83,11 +83,11 @@ public class Robot extends TimedRobot {
      if (Timer.getFPGATimestamp() - initTime < 2.0) 
      {
         //  Forward power || m_robotContainer.m_drivetrain.tankDrive(0.6,0.6);
-        m_robotContainer.m_drivetrain.tankDrive(-0.2,-0.2);
-        new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kScoringPosition, m_gripper));
-        new InstantCommand(() -> m_gripper.openGripper());
-        new InstantCommand(() -> m_gripper.CloseGripper());
-        new InstantCommand(() -> m_arm.setTargetPosition(Constants.Arm.kHomePosition, m_gripper));
+        m_robotContainer.m_drivetrain.tankDrive(Drivetrain.kLeftAutoSpeed, Drivetrain.kRightAutoSpeed);
+        // RobotContainer.m_arm.setTargetPosition(Constants.Arm.kScoringPosition, RobotContainer.m_gripper);
+        // RobotContainer.m_gripper.openGripper();
+        // RobotContainer.m_gripper.closeGripper();
+        // RobotContainer.m_arm.setTargetPosition(Constants.Arm.kHomePosition, RobotContainer.m_gripper);
       }
        else
       {
