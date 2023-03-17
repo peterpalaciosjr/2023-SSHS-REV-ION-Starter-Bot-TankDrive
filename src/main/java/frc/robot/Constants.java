@@ -37,7 +37,11 @@ public final class Constants {
         public static final boolean kRearLeftInverted = true;
         public static final boolean kRearRightInverted = false;
 
-        public static final int kCurrentLimit = 35;
+        // Teleoperated Motor Speeds
+        public static final int kLeftCurrentLimit = 35;
+        public static final int kRightCurrentLimit = 30;
+
+        // Autonomous Speeds
         public static final double kLeftAutoSpeed = 0.2;
         public static final double kRightAutoSpeed = 0.2;
 

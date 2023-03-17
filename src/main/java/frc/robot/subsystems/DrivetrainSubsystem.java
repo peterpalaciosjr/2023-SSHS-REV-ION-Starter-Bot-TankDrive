@@ -23,27 +23,27 @@ public class DrivetrainSubsystem extends SubsystemBase {
 
   /** Creates a new DrivetrainSubsystem. */
   public DrivetrainSubsystem() {
-    m_frontLeftMotor  = new CANSparkMax(Constants.Drivetrain.kFrontLeftCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
+    m_frontLeftMotor = new CANSparkMax(Constants.Drivetrain.kFrontLeftCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_frontLeftMotor.setInverted(Constants.Drivetrain.kFrontLeftInverted);
-    m_frontLeftMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_frontLeftMotor.setSmartCurrentLimit(Constants.Drivetrain.kLeftCurrentLimit);
     m_frontLeftMotor.setIdleMode(IdleMode.kBrake);
     m_frontLeftMotor.burnFlash();
 
     m_frontRightMotor = new CANSparkMax(Constants.Drivetrain.kFrontRightCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_frontRightMotor.setInverted(Constants.Drivetrain.kFrontRightInverted);
-    m_frontRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_frontRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kRightCurrentLimit);
     m_frontRightMotor.setIdleMode(IdleMode.kBrake);
     m_frontRightMotor.burnFlash();
 
-    m_rearLeftMotor   = new CANSparkMax(Constants.Drivetrain.kRearLeftCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
+    m_rearLeftMotor = new CANSparkMax(Constants.Drivetrain.kRearLeftCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_rearLeftMotor.setInverted(Constants.Drivetrain.kRearLeftInverted);
-    m_rearLeftMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_rearLeftMotor.setSmartCurrentLimit(Constants.Drivetrain.kLeftCurrentLimit);
     m_rearLeftMotor.setIdleMode(IdleMode.kBrake);
     m_rearLeftMotor.burnFlash();
 
-    m_rearRightMotor  = new CANSparkMax(Constants.Drivetrain.kRearRightCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
+    m_rearRightMotor = new CANSparkMax(Constants.Drivetrain.kRearRightCanId, CANSparkMaxLowLevel.MotorType.kBrushless);
     m_rearRightMotor.setInverted(Constants.Drivetrain.kRearRightInverted);
-    m_rearRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kCurrentLimit);
+    m_rearRightMotor.setSmartCurrentLimit(Constants.Drivetrain.kRightCurrentLimit);
     m_rearRightMotor.setIdleMode(IdleMode.kBrake);
     m_rearRightMotor.burnFlash();
   }
