@@ -18,6 +18,7 @@ import frc.robot.commands.CloseGripperAutoCmd;
 import frc.robot.commands.OpenGripperAutoCmd;
 import frc.robot.commands.ScoringPosAutoCmd;
 import frc.robot.commands.HomePosAutoCmd;
+import frc.robot.commands.SequentialCommandGroup;
 
 
 /**

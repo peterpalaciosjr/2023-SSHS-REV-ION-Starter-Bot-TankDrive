@@ -42,8 +42,8 @@ public final class Constants {
         public static final int kRightCurrentLimit = 30;
 
         // Autonomous Speeds
-        public static final double kLeftAutoSpeed = 0.2;
-        public static final double kRightAutoSpeed = 0.2;
+        public static final double kLeftAutoSpeed = -0.2;
+        public static final double kRightAutoSpeed = -0.2;
 
         // public static final double kTurningScale = 0.5;
     }
