@@ -14,7 +14,7 @@ public class ScoringPosAutoCmd extends CommandBase {
   /** Creates a new TankDrive. */
   public ScoringPosAutoCmd() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.m_drivetrain);
+    addRequirements(RobotContainer.m_arm);
   }
 
   // Called when the command is initially scheduled.

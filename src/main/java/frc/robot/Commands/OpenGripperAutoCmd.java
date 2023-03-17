@@ -14,7 +14,7 @@ public class OpenGripperAutoCmd extends CommandBase {
   /** Creates a new TankDrive. */
   public OpenGripperAutoCmd() {
     // Use addRequirements() here to declare subsystem dependencies.
-    addRequirements(RobotContainer.m_drivetrain);
+    addRequirements(RobotContainer.m_gripper);
   }
 
   // Called when the command is initially scheduled.
